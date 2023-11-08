@@ -23,3 +23,11 @@ CREATE TABLE animals (
     FOREIGN KEY (ownerid) REFERENCES owners(PK)
 );
 
+--3	Create new branch named "feat/create-table-appointments"
+CREATE TABLE appointments (
+    appointed SERIAL PRIMARY KEY,
+    animalid INT,
+    appointdate DATE,
+    reason VARCHAR(255),
+    FOREIGN KEY (animalid) REFERENCES animals(animalid)
+);
