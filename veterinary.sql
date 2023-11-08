@@ -41,3 +41,13 @@ CREATE TABLE doctors (
     phone VARCHAR(15),
     email VARCHAR(100)
 );
+
+--4	Create new branch named "feat/create-table-invoices"
+CREATE TABLE invoices (
+    invoiceid SERIAL PRIMARY KEY,
+    appointed INT,
+    totalamount NUMERIC(10, 2),
+    paymentdate DATE,
+    FOREIGN KEY (appointed) REFERENCES appointments(appointed)
+);
+
