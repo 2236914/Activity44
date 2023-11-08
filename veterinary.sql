@@ -23,3 +23,31 @@ CREATE TABLE animals (
     FOREIGN KEY (ownerid) REFERENCES owners(PK)
 );
 
+--3	Create new branch named "feat/create-table-appointments"
+CREATE TABLE appointments (
+    appointed SERIAL PRIMARY KEY,
+    animalid INT,
+    appointdate DATE,
+    reason VARCHAR(255),
+    FOREIGN KEY (animalid) REFERENCES animals(animalid)
+);
+
+--4	Create new branch named "feat/create-table-doctors"
+CREATE TABLE doctors (
+    doctorid SERIAL PRIMARY KEY,
+    dfirstname VARCHAR(50),
+    dlastname VARCHAR(50),
+    specialty VARCHAR(100),
+    phone VARCHAR(15),
+    email VARCHAR(100)
+);
+
+--4	Create new branch named "feat/create-table-invoices"
+CREATE TABLE invoices (
+    invoiceid SERIAL PRIMARY KEY,
+    appointed INT,
+    totalamount NUMERIC(10, 2),
+    paymentdate DATE,
+    FOREIGN KEY (appointed) REFERENCES appointments(appointed)
+);
+
