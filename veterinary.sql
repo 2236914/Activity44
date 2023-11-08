@@ -42,12 +42,25 @@ CREATE TABLE doctors (
     email VARCHAR(100)
 );
 
---4	Create new branch named "feat/create-table-invoices"
+--5	Create new branch named "feat/create-table-invoices"
 CREATE TABLE invoices (
     invoiceid SERIAL PRIMARY KEY,
     appointed INT,
     totalamount NUMERIC(10, 2),
     paymentdate DATE,
     FOREIGN KEY (appointed) REFERENCES appointments(appointed)
+);
+
+--6	Create new branch named "feat/create-table-medicalrecords"
+CREATE TABLE medicalrecords (
+    recorded SERIAL PRIMARY KEY,
+    animalid INT,
+    recorddate TIMESTAMP,
+    doctorid INT,
+    diagnosis TEXT,
+    prescription TEXT,
+    notes TEXT,
+    FOREIGN KEY (animalid) REFERENCES animals(animalid),
+    FOREIGN KEY (doctorid) REFERENCES doctors(doctorid)
 );
 
