@@ -31,3 +31,13 @@ CREATE TABLE appointments (
     reason VARCHAR(255),
     FOREIGN KEY (animalid) REFERENCES animals(animalid)
 );
+
+--4	Create new branch named "feat/create-table-doctors"
+CREATE TABLE doctors (
+    doctorid SERIAL PRIMARY KEY,
+    dfirstname VARCHAR(50),
+    dlastname VARCHAR(50),
+    specialty VARCHAR(100),
+    phone VARCHAR(15),
+    email VARCHAR(100)
+);
